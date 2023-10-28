@@ -1,16 +1,42 @@
-# This is a sample Python script.
+class Zoo:
+    zoo_name = "zoo"
+    total_animals = 0
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self, animal_type, name=None, can_fly=False, can_swim=False):
+        self.animal_type = animal_type
+        self.name = name
+        self.can_fly = can_fly
+        self.can_swim = can_swim
+        Zoo.total_animals += 1
+
+    def fly(self):
+        if self.can_fly:
+            print(f"{self.name} полетів!")
+        else:
+            print(f"{self.name} не може літати!")
+
+    def swim(self):
+        if self.can_swim:
+            print(f"{self.name} поплив!")
+        else:
+            print(f"{self.name} не може плавати!")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+fish = Zoo("риба", "Dory",  can_swim=True)
+crocodile = Zoo("Крокодил", "Gena", can_swim=True )
+bird = Zoo("птах", name="Rio", can_fly=True)
+# turtle = Zoo("черепаха", can_swim=True)
+print(fish.name)
+fish.swim()
+print(crocodile.name)
+crocodile.swim()
+crocodile.fly()
+print(bird.name)
+bird.swim()
+bird.fly()
+# crocodile.swim()
+# bird.fly()
+# turtle.swim()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(f"Назва зоопарку: {Zoo.zoo_name}")
+print(f"Загальна кількість тварин: {Zoo.total_animals}")
